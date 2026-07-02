@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DR. MUHAMMAD | Pakar Transformasi G ke A — SPM 2026</title>
+  <meta name="description" content="Pusat Tuisyen Premium SPM 2026. Bimbingan langsung oleh Penggubal dan Pemeriksa Kertas SPM. Jaminan Straight A's.">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo_crest.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/logo_crest.png">
+  <link rel="apple-touch-icon" href="./assets/logo_crest.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <meta name="google-site-verification" content="deT3b7fgX-rcuqEjZaC2ev89squ-NNkloUmqLJRfjUY" />
+  <style>
+  /* ══════════════════════════════════════════════════════════
+     DESIGN TOKENS
+  ══════════════════════════════════════════════════════════ */
+  :root{
+    --ink:#0b0a09; --charcoal:#161310; --card:#1c1710;
+    --gold:#c9a227; --gold-hi:#e9cf7a; --gold-dim:#7a6120;
+    --cream:#efe6d3; --cream-dim:#cfc4a8;
+    --line:rgba(201,162,39,0.28); --line-soft:rgba(201,162,39,0.14);
+    --ease:cubic-bezier(0.16,1,0.3,1);
+    --ease-sharp:cubic-bezier(0.76,0,0.24,1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;scroll-padding-top:90px;font-size:16px;}
+  body{background:var(--ink);color:var(--cream);font-family:'Lora',Georgia,serif;line-height:1.7;overflow-x:hidden;}
+  body.locked{overflow:hidden;}
+  img{display:block;max-width:100%;height:auto;}
+  a{text-decoration:none;color:inherit;}
+
+  /* Justify text elements */
+  .body-txt, .bullet-row, .testi-q, .faq-a-in, #faq p, #cta p, #program p {
+    text-align: justify;
+  }
+
+  /* ── Typography ─────────────────────────────────── */
+  .eyebrow{
+    font-family:'Lora',serif;font-style:italic;font-size:.75rem;
+    letter-spacing:4px;text-transform:uppercase;color:var(--gold);
+    display:inline-block;margin-bottom:14px;position:relative;
+  }
+  .eyebrow::after{
+    content:'';position:absolute;bottom:-3px;left:0;
+    width:0;height:1px;background:var(--gold);
+    transition:width .9s var(--ease) .15s;
+  }
+  .eyebrow.in::after{width:100%;}
+  .display{font-family:'Playfair Display',serif;line-height:1.1;color:var(--cream);}
+  .body-txt{font-family:'Lora',serif;font-size:1.03rem;line-height:1.78;color:var(--cream-dim);}
+
+  /* ══════════════════════════════════════════════════════════
+     INTRO OVERLAY — Aston Martin cinematic entrance
+  ══════════════════════════════════════════════════════════ */
+  #intro{
+    position:fixed;inset:0;background:var(--ink);z-index:9000;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    transition:transform 1.3s var(--ease-sharp);will-change:transform;cursor:pointer;
+  }
+  #intro.exit{transform:translateY(-100vh);pointer-events:none;}
+  #intro::before{
+    content:'';position:absolute;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(ellipse,rgba(201,162,39,.13) 0%,transparent 70%);
+    animation:introPulse 3s ease-in-out infinite;pointer-events:none;
+  }
+  /* Spinning conic halo */
+  #intro::after{
+    content:'';position:absolute;width:720px;height:720px;border-radius:50%;
+    background:conic-gradient(from 0deg,transparent 50%,rgba(201,162,39,.055),transparent 50%);
+    animation:introSpin 18s linear infinite;pointer-events:none;z-index:0;
+  }
+  @keyframes introPulse{0%,100%{transform:scale(.9);opacity:.6;}50%{transform:scale(1.18);opacity:1;}}
+  @keyframes introSpin{to{transform:rotate(360deg);}}
+  .intro-logo{
+    width:min(900px,82vw);opacity:0;position:relative;z-index:1;
+    animation:introLogoIn 1.8s var(--ease) .4s forwards;
+  }
+  @keyframes introLogoIn{
+    0%  {opacity:0;transform:scale(.7) translateY(24px);filter:drop-shadow(0 0 0px rgba(201,162,39,0));}
+    55% {opacity:1;transform:scale(1.05) translateY(0);filter:drop-shadow(0 0 64px rgba(201,162,39,.85));}
+    100%{opacity:1;transform:scale(1) translateY(0);filter:drop-shadow(0 0 28px rgba(201,162,39,.4));}
+  }
+  .intro-line{
+    width:0;height:1px;
+    background:linear-gradient(90deg,transparent,var(--gold),transparent);
+    margin:28px 0 22px;position:relative;z-index:1;
+    animation:introLine .9s var(--ease) 1.9s forwards;
+  }
+  @keyframes introLine{to{width:180px;}}
+  .intro-tag{
+    font-family:'Lora',serif;font-style:italic;font-size:.82rem;letter-spacing:6px;
+    text-transform:uppercase;color:var(--gold-hi);opacity:0;position:relative;z-index:1;
+    animation:introFade .8s var(--ease) 2.3s forwards;
+  }
+  .intro-hint{
+    position:absolute;bottom:40px;font-family:'Lora',serif;font-style:italic;
+    font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);
+    opacity:0;animation:introFade .6s ease 2.8s forwards;
+    display:flex;align-items:center;gap:10px;
+  }
+  .intro-hint-dots span{
+    display:inline-block;width:4px;height:4px;border-radius:50%;
+    background:var(--gold-dim);margin:0 2px;
+    animation:dotBounce 1.4s ease-in-out infinite;
+  }
+  .intro-hint-dots span:nth-child(2){animation-delay:.2s;}
+  .intro-hint-dots span:nth-child(3){animation-delay:.4s;}
+  @keyframes dotBounce{0%,80%,100%{transform:translateY(0);}40%{transform:translateY(-6px);}}
+  @keyframes introFade{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ══════════════════════════════════════════════════════════
+     NAVIGATION
+  ══════════════════════════════════════════════════════════ */
+  #navbar{
+    position:fixed;top:0;left:0;right:0;z-index:800;height:88px;
+    display:flex;align-items:center;justify-content:space-between;padding:0 64px;
+    transition:background .45s ease,box-shadow .45s ease,backdrop-filter .45s ease;
+  }
+  #navbar.scrolled{
+    background:rgba(11,10,9,.94);backdrop-filter:blur(14px) saturate(1.2);
+    box-shadow:0 1px 0 var(--line);
+  }
+  .nav-brand{height:54px;cursor:pointer;transition:opacity .3s;}
+  .nav-links{display:flex;gap:36px;list-style:none;}
+  .nav-link{
+    font-family:'Lora',serif;font-size:.7rem;letter-spacing:2.5px;text-transform:uppercase;
+    color:var(--cream-dim);cursor:pointer;padding-bottom:3px;position:relative;transition:color .3s;
+    display:inline-block;
+  }
+  .nav-link::after{
+    content:'';position:absolute;bottom:0;left:0;
+    width:0;height:1px;background:var(--gold-hi);transition:width .4s var(--ease);
+  }
+  .nav-link.active{color:var(--gold-hi);}
+  .nav-link.active::after{width:100%;}
+  .nav-cta{
+    font-family:'Lora',serif;font-weight:600;font-size:.68rem;letter-spacing:2px;
+    text-transform:uppercase;color:var(--gold-hi);border:1px solid rgba(201,162,39,.5);
+    padding:12px 22px;cursor:pointer;white-space:nowrap;
+    transition:background .3s,color .3s,border-color .3s,box-shadow .3s;
+  }
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+  .hamburger span{display:block;width:24px;height:1.5px;background:var(--cream);transition:all .35s ease;}
+  .hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4.5px);}
+  .hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+  .hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4.5px);}
+  #mobile-nav{
+    display:none;position:fixed;top:88px;left:0;right:0;
+    background:rgba(11,10,9,.97);padding:24px 48px 40px;z-index:799;
+    transform:translateY(-8px);opacity:0;pointer-events:none;
+    transition:transform .4s var(--ease),opacity .35s ease;
+  }
+  #mobile-nav.open{transform:translateY(0);opacity:1;pointer-events:all;}
+  #mobile-nav a{
+    display:block;font-family:'Lora',serif;font-size:.9rem;letter-spacing:3px;
+    text-transform:uppercase;color:var(--cream-dim);padding:16px 0;
+    border-bottom:1px solid var(--line-soft);transition:color .3s;
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     SECTION SHELL
+  ══════════════════════════════════════════════════════════ */
+  section{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;}
+  .wrap{width:100%;max-width:1480px;margin:0 auto;padding:130px 80px 110px;position:relative;z-index:2;}
+  .vine{position:absolute;z-index:1;opacity:.45;pointer-events:none;}
+  .vine svg{width:70px;}
+  .vine.tl{top:28px;left:28px;}
+  .vine.tr{top:28px;right:28px;transform:scaleX(-1);}
+  .vine.bl{bottom:28px;left:28px;transform:scaleY(-1);}
+  .vine.br{bottom:28px;right:28px;transform:scale(-1,-1);}
+  .wm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;opacity:.038;pointer-events:none;z-index:0;}
+  .divider{display:flex;align-items:center;justify-content:center;gap:16px;margin:28px 0;}
+  .divider .ln{flex:0 0 100px;height:1px;background:var(--gold-dim);}
+  .divider .dm{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
+
+  /* ══════════════════════════════════════════════════════════
+     SCROLL PROGRESS BAR
+  ══════════════════════════════════════════════════════════ */
+  #progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold-dim),var(--gold-hi));z-index:9001;width:0;transition:width .1s linear;box-shadow:0 0 8px rgba(201,162,39,.6);}
+
+  /* ══════════════════════════════════════════════════════════
+     SCROLL ANIMATION SYSTEM
+  ══════════════════════════════════════════════════════════ */
+  [data-anim]{opacity:0;transition:opacity .9s var(--ease),transform .9s var(--ease),clip-path 1.1s var(--ease),filter 2s var(--ease);}
+  [data-anim="up"]{transform:translateY(54px);}
+  [data-anim="left"]{transform:translateX(-60px);}
+  [data-anim="right"]{transform:translateX(60px);}
+  [data-anim="scale"]{transform:scale(.87);}
+  /* Aston Martin diagonal wipe */
+  [data-anim="diagonal"]{clip-path:polygon(0 100%,0 100%,0 100%,0 100%);opacity:1!important;transform:none!important;transition:clip-path 1.45s cubic-bezier(.76,0,.24,1);}
+  [data-anim="diagonal"].in{clip-path:polygon(0 0,100% 0,100% 100%,0 100%);}
+  /* Porsche skew-up */
+  [data-anim="skew-up"]{opacity:0;transform:translateY(52px) skewY(2.5deg);transform-origin:left;transition:opacity .95s var(--ease),transform .95s var(--ease);}
+  [data-anim="skew-up"].in{opacity:1;transform:translateY(0) skewY(0);}
+  /* Premium flip-up card */
+  [data-anim="flip-up"]{opacity:0;transform:perspective(900px) rotateX(22deg) translateY(42px);transform-origin:top;transition:opacity .95s var(--ease),transform .95s var(--ease);}
+  [data-anim="flip-up"].in{opacity:1;transform:perspective(900px) rotateX(0) translateY(0);}
+  /* Vogue blur-to-sharp */
+  [data-anim="sharpen"]{opacity:0;filter:blur(20px) brightness(.45) saturate(0);transform:scale(1.08);transition:opacity 1.9s var(--ease),filter 2.1s var(--ease),transform 2.1s var(--ease);}
+  [data-anim="sharpen"].in{opacity:1;filter:blur(0) brightness(1) saturate(1);transform:scale(1);}
+  /* Stagger delays */
+  [data-delay="1"]{transition-delay:.10s;}[data-delay="2"]{transition-delay:.20s;}
+  [data-delay="3"]{transition-delay:.30s;}[data-delay="4"]{transition-delay:.40s;}
+  [data-delay="5"]{transition-delay:.50s;}[data-delay="6"]{transition-delay:.60s;}
+  [data-delay="7"]{transition-delay:.72s;}[data-delay="8"]{transition-delay:.85s;}
+  [data-delay="9"]{transition-delay:1.00s;}
+  [data-anim].in{opacity:1;transform:none;clip-path:inset(0 0 0 0);}
+
+  /* ── Gucci word-split ────────────────────────────── */
+  .split-words{overflow:visible;display:block;}
+  .sw{display:inline-block;overflow:hidden;vertical-align:bottom;margin-right:.26em;}
+  .sw-inner{display:inline-block;transform:translateY(112%);transition:transform 1s var(--ease);transition-delay:calc(var(--wi,0)*62ms);}
+  .split-words.in .sw-inner{transform:translateY(0);}
+
+  /* ── Char-split eyebrows ─────────────────────────── */
+  .sc{display:inline-block;opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .55s var(--ease);transition-delay:calc(var(--ci,0)*28ms);}
+  .split-chars.in .sc{opacity:1;transform:translateY(0);}
+
+  /* ── Precision sweep line (Porsche) ─────────────── */
+  .p-line{height:1px;background:var(--line-soft);position:relative;overflow:hidden;margin:16px 0 32px;}
+  .p-line::after{content:'';position:absolute;top:0;left:0;width:0;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-hi),transparent);box-shadow:0 0 12px rgba(201,162,39,.8);transition:width 1.9s var(--ease);}
+  .p-line.in::after{width:100%;}
+
+  /* ══════════════════════════════════════════════════════════
+     GOLD CTA BUTTON
+  ══════════════════════════════════════════════════════════ */
+  .btn-mag{display:inline-block;}
+  .btn{
+    display:inline-block;font-family:'Lora',serif;font-weight:700;
+    font-size:.82rem;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink);
+    background:linear-gradient(135deg,var(--gold-hi) 0%,var(--gold) 100%);
+    padding:22px 58px;border:none;cursor:pointer;position:relative;overflow:hidden;
+    transition:transform .35s var(--ease),box-shadow .35s ease;
+  }
+  .btn::after{
+    content:'';position:absolute;top:0;left:-110%;width:65%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.32),transparent);
+    transform:skewX(-22deg);animation:shimmer 3.8s infinite;
+  }
+  @keyframes shimmer{0%{left:-110%;}55%,100%{left:160%;}}
+  .btn-pulse{animation:ring 3.2s ease-in-out infinite;}
+  @keyframes ring{0%,100%{box-shadow:0 0 0 0 rgba(201,162,39,.45);}50%{box-shadow:0 0 0 20px rgba(201,162,39,0);}}
+  .btn-note{font-family:'Lora',serif;font-style:italic;font-size:.78rem;color:var(--cream-dim);margin-top:14px;}
+
+  /* ══════════════════════════════════════════════════════════
+     PARTICLES (CTA)
+  ══════════════════════════════════════════════════════════ */
+  .particle{position:absolute;border-radius:50%;background:var(--gold);pointer-events:none;animation:floatUp linear infinite;opacity:0;}
+  @keyframes floatUp{0%{transform:translateY(0) rotate(0deg);opacity:0;}8%{opacity:.55;}90%{opacity:.3;}100%{transform:translateY(-120px) rotate(220deg);opacity:0;}}
+
+  /* ══════════════════════════════════════════════════════════
+     SECTION 1 — HERO
+  ══════════════════════════════════════════════════════════ */
+  #home{background:var(--ink);padding-top:88px;}
+  #home .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center;padding-top:60px;padding-bottom:60px;min-height:calc(100vh - 88px);}
+  .hero-img-wrap{position:relative;overflow:hidden;}
+  .hero-img-wrap img{width:100%;display:block;border:1px solid rgba(201,162,39,.18);transition:transform 8s ease;}
+  .hero-content{text-align:center;}
+  .hero-crest{width:200px;margin:0 auto 22px;}
+  .hero-name{font-family:'Playfair Display',serif;font-size:3.8rem;font-weight:700;color:var(--gold-hi);letter-spacing:2px;line-height:1.08;margin-bottom:16px;}
+  .hero-sub{font-family:'Lora',serif;font-size:1.06rem;color:var(--cream-dim);margin-bottom:38px;line-height:1.65;}
+
+  /* ══════════════════════════════════════════════════════════
+     SECTION 2 — KEPAKARAN KAMI
+  ══════════════════════════════════════════════════════════ */
+  #kepakaran{background:linear-gradient(180deg,#0f0d0a,var(--ink) 85%);}
+  .kep-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:32px;}
+  .vbox{
+    background:linear-gradient(160deg,#1e1910,var(--charcoal));
+    border:1px solid var(--line);border-radius:3px;height:360px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;cursor:pointer;position:relative;overflow:hidden;
+    transition:border-color .4s,box-shadow .4s;
+  }
+  .vbox::before{
+    content:'';position:absolute;top:-80%;left:-20%;width:60%;height:160%;
+    background:linear-gradient(90deg,transparent,rgba(201,162,39,.06),transparent);
+    transform:rotate(10deg);animation:scanLight 4s ease-in-out infinite;
+  }
+  @keyframes scanLight{0%,100%{left:-30%;}50%{left:110%;}}
+  .play-ring{width:72px;height:72px;border-radius:50%;border:2px solid var(--gold-hi);margin-bottom:18px;display:flex;align-items:center;justify-content:center;transition:transform .4s var(--ease),box-shadow .4s;position:relative;z-index:1;}
+  .play-arrow{width:0;height:0;border-top:11px solid transparent;border-bottom:11px solid transparent;border-left:19px solid var(--gold-hi);margin-left:4px;}
+  .vp-lbl{font-family:'Lora',serif;font-size:.63rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);position:relative;z-index:1;}
+  .vp-ttl{font-family:'Playfair Display',serif;font-size:1.08rem;color:var(--cream);margin-top:8px;position:relative;z-index:1;}
+  .kep-paras{display:flex;flex-direction:column;gap:22px;}
+  .stats{display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:60px;border-top:1px solid var(--line);}
+  .stat-cell{text-align:center;padding:30px 16px;border-right:1px solid var(--line);position:relative;}
+  .stat-cell::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:var(--gold);transform:translateX(-50%);transition:width .5s var(--ease);}
+  .stat-cell:last-child{border-right:none;}
+  .stat-num{font-family:'Playfair Display',serif;font-size:2.8rem;color:var(--gold-hi);display:block;line-height:1;}
+  .stat-lbl{font-family:'Lora',serif;font-size:.78rem;color:var(--cream-dim);margin-top:8px;letter-spacing:1px;}
+
+  /* ══════════════════════════════════════════════════════════
+     SECTION 3 — SISTEM TRANSFORMASI
+  ══════════════════════════════════════════════════════════ */
+  #sistem{background:var(--ink);}
+  .method-list{margin-top:40px;}
+  .method-row{display:grid;grid-template-columns:60px 230px 1fr;border-top:1px solid var(--line);padding:64px 0;align-items:start;transition:background .4s;}
+  .method-row:last-child{border-bottom:1px solid var(--line);}
+  .method-num{font-family:'Playfair Display',serif;font-style:italic;font-size:2.6rem;color:var(--gold);line-height:1;padding-top:2px;transition:color .5s ease,text-shadow .5s ease;}
+  .method-title{font-family:'Playfair Display',serif;font-size:1.22rem;color:var(--cream);line-height:1.35;padding-right:40px;padding-top:4px;transition:color .4s;}
+
+  /* ══════════════════════════════════════════════════════════
+     SECTION 4 — SEMINAR
+  ══════════════════════════════════════════════════════════ */
+  #seminar{background:linear-gradient(180deg,#0f0d0a,var(--ink) 75%);}
+  .quote-card{
+    background:linear-gradient(135deg,#1d1710,var(--charcoal));
+    border:1px solid var(--line);border-left:3px solid var(--gold);
+    padding:28px 36px;margin:28px 0;
+    font-family:'Lora',serif;font-style:italic;font-size:1.05rem;color:var(--gold-hi);line-height:1.75;
+    position:relative;overflow:hidden;transition:border-color .4s,box-shadow .4s;
+  }
+  .quote-card::before{content:'\201C';position:absolute;top:-10px;left:18px;font-family:'Playfair Display',serif;font-size:5.5rem;color:var(--gold);opacity:.22;line-height:1;pointer-events:none;}
+  .bullet-row{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line-soft);align-items:flex-start;}
+  .b-dot{color:var(--gold);font-size:.8rem;flex-shrink:0;margin-top:5px;display:inline-block;transition:transform .35s var(--ease),color .3s;}
+
+  /* ══════════════════════════════════════════════════════════
+     SECTION 5 — PROGRAM
+  ══════════════════════════════════════════════════════════ */
+  #program{background:var(--ink);}
+  .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px;}
+  .price-card{
+    background:linear-gradient(160deg,#1e1810,var(--charcoal));
+    border:1px solid var(--line);border-radius:3px;
+    padding:46px 48px 52px;position:relative;overflow:hidden;
+    transition:border-color .4s,box-shadow .4s,transform .45s var(--ease);
+  }
+  .price-card::before{content:'';position:absolute;inset:10px;border:1px solid rgba(201,162,39,.12);border-radius:2px;pointer-events:none;}
+  .price-card::after{content:'';position:absolute;top:-50%;left:-60%;width:40%;height:200%;background:linear-gradient(90deg,transparent,rgba(201,162,39,.07),transparent);transform:skewX(-15deg);transition:left .6s ease;pointer-events:none;}
+  .card-shine{position:absolute;inset:0;border-radius:3px;background:linear-gradient(135deg,rgba(233,207,122,0),rgba(233,207,122,.07),rgba(233,207,122,0));opacity:0;pointer-events:none;transition:opacity .5s;}
+  .card-opt{font-family:'Lora',serif;font-size:.64rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dim);margin-bottom:12px;}
+  .card-title{font-family:'Playfair Display',serif;font-size:1.55rem;color:var(--cream);line-height:1.3;margin-bottom:14px;}
+  .card-desc{font-family:'Lora',serif;font-size:.92rem;color:var(--cream-dim);line-height:1.65;margin-bottom:28px;}
+  .card-std{font-family:'Lora',serif;font-size:.82rem;color:var(--gold-dim);text-decoration:line-through;margin-bottom:6px;}
+  .price-card .card-price{display:flex;align-items:baseline;gap:4px;}
+  .card-rm{font-family:'Lora',serif;font-size:1.2rem;color:var(--cream);}
+  .card-num{font-family:'Playfair Display',serif;font-size:4.2rem;color:var(--cream);line-height:1;}
+  .card-pay{font-family:'Lora',serif;font-size:.85rem;color:var(--cream-dim);margin-top:10px;}
+
+  /* ══════════════════════════════════════════════════════════
+     SECTION 6 — TESTIMONI
+  ══════════════════════════════════════════════════════════ */
+  #testimoni{background:linear-gradient(180deg,#0f0d0a,var(--ink) 75%);}
+  .testi-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:start;margin-top:36px;}
+  .testi-tag{font-family:'Lora',serif;font-weight:700;font-size:.88rem;color:var(--gold-hi);margin-bottom:16px;}
+  .testi-q{font-family:'Lora',serif;font-style:italic;font-size:1rem;color:var(--cream-dim);line-height:1.8;margin-bottom:20px;}
+  .testi-name{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--gold);}
+  .testi-title{font-family:'Lora',serif;font-size:.78rem;color:var(--cream-dim);}
+  .photo-wrap{overflow:hidden;border:1px solid rgba(201,162,39,.22);position:relative;background:var(--charcoal);}
+  .photo-wrap img{width:100%;height:auto;object-position:top center;transition:transform 6s ease;display:block;}
+  .vid-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+
+  /* YouTube embed */
+  .yt-thumb {
+    position: relative; cursor: pointer; overflow: hidden;
+    background: #000; border: 1px solid var(--line);
+    border-radius: 8px; aspect-ratio: 16/9; width: 100%;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+  }
+  .yt-thumb img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform .6s ease, filter .4s ease;
+    filter: brightness(.88);
+  }
+  .yt-over{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(0,0,0,.35);transition:background .3s;}
+  .yt-btn{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,rgba(233,207,122,.92),rgba(201,162,39,.92));display:flex;align-items:center;justify-content:center;transition:transform .35s var(--ease),box-shadow .35s ease;box-shadow:0 8px 28px rgba(0,0,0,.55);}
+  .yt-tri{width:0;height:0;border-top:12px solid transparent;border-bottom:12px solid transparent;border-left:22px solid #0b0a09;margin-left:5px;}
+  .yt-lbl{margin-top:14px;font-family:'Lora',serif;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:rgba(233,207,122,.82);}
+  .yt-sm .yt-btn{width:52px;height:52px;}
+  .yt-sm .yt-tri{border-top-width:8px;border-bottom-width:8px;border-left-width:15px;}
+  .yt-sm .yt-lbl{font-size:.6rem;}
+  
+  /* In-place video container */
+  .yt-thumb iframe { width: 100%; height: 100%; border: none; }
+
+  /* ══════════════════════════════════════════════════════════
+     SECTION 7 — FAQ
+  ══════════════════════════════════════════════════════════ */
+  #faq{background:var(--ink);}
+  .faq-list{max-width:1140px;margin:36px auto 0;}
+  .faq-item{
+    border-bottom:1px solid var(--line-soft);
+    border-left:2px solid transparent;padding-left:0;
+    transition:border-color .4s var(--ease),padding-left .4s var(--ease);
+  }
+  .faq-item:first-child{border-top:1px solid var(--line-soft);}
+  .faq-item.open{border-left-color:var(--gold);padding-left:16px;}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;padding:20px 0;cursor:pointer;gap:24px;user-select:none;}
+  .faq-q-txt{font-family:'Lora',serif;font-weight:600;font-size:.97rem;color:var(--cream);line-height:1.5;transition:color .3s;}
+  .faq-item.open .faq-q-txt{color:var(--gold-hi);}
+  .faq-ico{flex-shrink:0;width:18px;height:18px;position:relative;}
+  .faq-ico::before,.faq-ico::after{content:'';position:absolute;background:var(--gold-dim);transition:transform .4s var(--ease),opacity .3s,background .3s;}
+  .faq-ico::before{width:18px;height:1.5px;top:50%;left:0;transform:translateY(-50%);}
+  .faq-ico::after{width:1.5px;height:18px;left:50%;top:0;transform:translateX(-50%);}
+  .faq-item.open .faq-ico::before{background:var(--gold-hi);}
+  .faq-item.open .faq-ico::after{transform:translateX(-50%) rotate(90deg) scaleY(0);background:var(--gold-hi);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .52s cubic-bezier(.16,1,.3,1),padding .4s ease;}
+  .faq-a-in{padding:0 26px 22px 0;font-family:'Lora',serif;font-size:.92rem;line-height:1.7;color:var(--cream-dim);}
+
+  /* ══════════════════════════════════════════════════════════
+     SECTION 8 — CTA
+  ══════════════════════════════════════════════════════════ */
+  #cta{background:radial-gradient(ellipse at center,#1c1508 0%,var(--ink) 68%);text-align:center;}
+  #cta .wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .cta-logo{width:280px;margin-bottom:30px;animation:breathe 5.5s ease-in-out infinite;}
+  @keyframes breathe{
+    0%,100%{filter:drop-shadow(0 0 18px rgba(201,162,39,.3));transform:scale(1);}
+    50%{filter:drop-shadow(0 0 62px rgba(233,207,122,.72));transform:scale(1.02);}
+  }
+  .cta-hl{font-family:'Playfair Display',serif;font-size:3rem;color:var(--cream);line-height:1.12;max-width:940px;margin:28px auto 26px;}
+
+  /* ══════════════════════════════════════════════════════════
+     CONNECT / SOCIAL SECTION
+  ══════════════════════════════════════════════════════════ */
+  #connect{min-height:auto!important;display:block!important;background:linear-gradient(180deg,#0d0b08,#090807);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .connect-wrap{max-width:1200px;margin:0 auto;padding:100px 80px 90px;text-align:center;}
+  .connect-hl{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--cream);margin-bottom:60px;display:block;}
+  .soc-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:0;}
+  .soc-link{
+    font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:400;
+    letter-spacing:2px;color:var(--cream-dim);text-decoration:none;
+    padding:12px 28px;position:relative;transition:color .4s var(--ease);
+  }
+  .soc-link::before{content:'';position:absolute;bottom:8px;left:28px;width:0;height:1px;background:var(--gold-hi);transition:width .55s var(--ease);}
+  .soc-link:hover{color:var(--gold-hi);}
+  .soc-link:hover::before{width:calc(100% - 56px);}
+  .soc-sep{color:var(--gold-dim);font-family:'Lora',serif;font-size:1rem;opacity:.5;user-select:none;flex-shrink:0;}
+
+  /* ══════════════════════════════════════════════════════════
+     FOOTER
+  ══════════════════════════════════════════════════════════ */
+  .site-footer{background:#070605;border-top:1px solid rgba(201,162,39,.1);padding:50px 80px 40px;text-align:center;}
+  .footer-crest{width:42px;margin:0 auto 20px;opacity:.5;transition:opacity .4s;}
+  .footer-copy{font-family:'Lora',serif;font-size:.72rem;color:var(--gold-dim);letter-spacing:1.2px;line-height:2.2;}
+  .footer-sep{opacity:.35;margin:0 10px;}
+  .footer-a{color:var(--gold);text-decoration:none;transition:color .3s;}
+
+  /* ── Bold text in gold (user emphasis) ──────────── */
+  .body-txt b, .body-txt strong,
+  .faq-a-in b, .faq-a-in strong,
+  .quote-card b, .quote-card strong,
+  .method-title b, .method-title strong,
+  .testi-q b, .testi-q strong,
+  .card-pay strong,
+  #cta .body-txt b, #cta .body-txt strong { 
+    color: var(--gold-hi); 
+    font-weight: 700;
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     DESKTOP ONLY HOVER EFFECTS (Prevents stuck hovers on mobile)
+  ══════════════════════════════════════════════════════════ */
+  @media (hover: hover) and (pointer: fine) {
+    .nav-brand:hover { opacity: .82; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-hi); }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    .nav-cta:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); box-shadow: 0 6px 24px rgba(201,162,39,.3); }
+    #mobile-nav a:hover { color: var(--gold-hi); }
+    #home:hover .hero-img-wrap img { transform: scale(1.03); }
+    .vbox:hover { border-color: var(--gold); box-shadow: 0 0 50px rgba(201,162,39,.14); }
+    .vbox:hover .play-ring { transform: scale(1.12); box-shadow: 0 0 34px rgba(233,207,122,.45); }
+    .stat-cell:hover::after { width: 60%; }
+    .method-row:hover { background: rgba(201,162,39,.028); }
+    .method-row:hover .method-num { color: var(--gold-hi); text-shadow: 0 0 40px rgba(233,207,122,.4); }
+    .method-row:hover .method-title { color: var(--gold-hi); }
+    .quote-card:hover { border-color: var(--gold-hi); box-shadow: 0 0 30px rgba(201,162,39,.1); }
+    .bullet-row:hover .b-dot { transform: rotate(45deg) scale(1.6); color: var(--gold-hi); }
+    .price-card:hover::after { left: 140%; }
+    .price-card:hover { border-color: var(--gold-hi); box-shadow: 0 24px 60px rgba(0,0,0,.45), 0 0 30px rgba(201,162,39,.1); transform: translateY(-7px); }
+    .price-card:hover .card-shine { opacity: 1; }
+    #testimoni:hover .photo-wrap img { transform: scale(1.04); }
+    .yt-thumb:hover img { transform: scale(1.04); filter: brightness(.7); }
+    .yt-thumb:hover .yt-over { background: rgba(0,0,0,.1); }
+    .yt-thumb:hover .yt-btn { transform: scale(1.18); box-shadow: 0 14px 42px rgba(201,162,39,.55); }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 18px 44px rgba(201,162,39,.38); }
+    .soc-link:hover { color: var(--gold-hi); }
+    .soc-link:hover::before { width: calc(100% - 56px); }
+    .footer-crest:hover { opacity: .88; }
+    .footer-a:hover { color: var(--gold-hi); }
+  }
+
+  /* ══════════════════════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════════════════════ */
+  @media (max-width:1100px){
+    .wrap{padding:110px 48px 90px;}
+    #home .wrap{grid-template-columns:1fr;gap:40px;padding-top:50px;padding-bottom:50px;min-height:auto;}
+    .hero-content{text-align:center;}
+    .hero-crest{margin:0 auto 18px;width:140px;}
+    .hero-name{font-size:3rem;}
+    .kep-grid{grid-template-columns:1fr;gap:40px;}
+    .method-row{grid-template-columns:52px 1fr;}
+    .method-title{grid-column:2;padding-right:0;}
+    .price-grid{grid-template-columns:1fr;gap:20px;}
+    /* Adjusted testimonial layout for mobile so the photo is at the top */
+    .testi-grid{display:flex;flex-direction:column-reverse;gap:40px;}
+    #navbar{padding:0 32px;}
+    .nav-links,.nav-cta{display:none;}
+    .hamburger{display:flex;}
+    #mobile-nav{display:block;}
+    .cta-logo{width:200px;}
+    .cta-hl{font-size:2.4rem;}
+    .connect-wrap{padding:70px 48px 60px;}
+    .connect-hl{font-size:1.9rem;margin-bottom:44px;}
+  }
+  @media (max-width:768px){
+    .wrap{padding:100px 28px 80px;}
+    #home .wrap{padding-top:40px;padding-bottom:40px;}
+    .method-row{grid-template-columns:50px 1fr;grid-template-rows:auto auto;grid-template-areas:"num title"".    body";padding:40px 0;}
+    .method-num{grid-area:num;font-size:2.2rem;}
+    .method-title{grid-area:title;padding-right:0;font-size:1.1rem;}
+    .method-row .body-txt{grid-area:body;margin-top:14px;}
+    .vid-row{grid-template-columns:1fr;gap:20px;}
+    .price-card{padding:32px 28px 36px;}
+    .card-num{font-size:3.2rem;}
+    .quote-card{padding:22px 24px;font-size:.97rem;}
+    .stats{grid-template-columns:1fr;}
+    .stat-cell{border-right:none;border-bottom:1px solid var(--line);}
+    .stat-cell:last-child{border-bottom:none;}
+    .stat-num{font-size:2.4rem;}
+    .faq-q-txt{font-size:.9rem;}
+    .faq-item.open{padding-left:10px;}
+    .cta-hl{font-size:2rem;}
+    .cta-logo{width:180px;}
+    .testi-grid{gap:28px;}
+    .connect-wrap{padding:60px 24px 50px;}
+    .connect-hl{font-size:1.65rem;margin-bottom:36px;}
+    .soc-link{font-size:1.15rem;padding:10px 14px;}
+    .site-footer{padding:36px 24px 28px;}
+  }
+  @media (max-width:480px){
+    .wrap{padding:96px 20px 70px;}
+    .hero-name{font-size:2.2rem;}
+    .hero-sub{font-size:.95rem;}
+    .btn{padding:18px 32px;font-size:.76rem;}
+    h2.display,.cta-hl{font-size:1.75rem!important;}
+    .eyebrow{font-size:.7rem;}
+    .body-txt{font-size:.95rem;}
+    .method-row{grid-template-columns:40px 1fr;grid-template-areas:"num title"". body";padding:32px 0;}
+    .method-num{grid-area:num;font-size:1.8rem;}
+    .method-title{grid-area:title;font-size:1rem;}
+    .method-row .body-txt{grid-area:body;}
+    .card-num{font-size:2.8rem;}
+    .intro-logo{width:min(400px,80vw);}
+    .faq-list{margin-top:24px;}
+    .testi-name{font-size:1.15rem;}
+    #navbar{padding:0 20px;height:76px;}
+    .price-card{padding:28px 20px 32px;}
+    .stats{grid-template-columns:1fr;}
+    .stat-cell{border-right:none;border-bottom:1px solid var(--line);}
+    .soc-link{font-size:1rem;padding:8px 10px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
+    [data-anim]{opacity:1;transform:none;clip-path:none;}
+    #intro{display:none!important;}
+    body.locked{overflow:auto;}
+  }
+
+</style>
+</head>
+
+<body class="locked">
+<div id="progress"></div>
+
+<div id="intro" title="Click to enter">
+  <img src="./assets/logo_main.png" alt="DR. MUHAMMAD" class="intro-logo">
+  <div class="intro-line"></div>
+  <p class="intro-tag">Pakar Transformasi G ke A</p>
+  <div class="intro-hint">
+    <span>Enter</span>
+    <span class="intro-hint-dots"><span></span><span></span><span></span></span>
+  </div>
+</div>
+
+<nav id="navbar">
+  <img src="./assets/logo_main.png" alt="DR. MUHAMMAD" class="nav-brand" id="nav-home">
+  <ul class="nav-links">
+    <li><a class="nav-link" href="#home">Home</a></li>
+    <li><a class="nav-link" href="#kepakaran">Kepakaran Kami</a></li>
+    <li><a class="nav-link" href="#program">Program</a></li>
+    <li><a class="nav-link" href="#faq">Testimoni &amp; FAQ</a></li>
+  </ul>
+  <a class="nav-cta" href="https://wa.me/601111472759?text=Hi%20Dr%20Muhammad%2C%20saya%20berminat%20nak%20daftar%20anak%20saya%20untuk%20Seminar%20Guaranteed%20Skor%20Straight%20A%27s%20SPM%202026." target="_blank" rel="noopener">Start Your Transformation</a>
+  <button class="hamburger" id="ham" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+</nav>
+<div id="mobile-nav">
+  <a href="#home">Home</a>
+  <a href="#kepakaran">Kepakaran Kami</a>
+  <a href="#seminar">Seminar</a>
+  <a href="#program">Program</a>
+  <a href="#testimoni">Testimoni</a>
+  <a href="#faq">FAQ</a>
+  <a href="https://wa.me/601111472759?text=Hi%20Dr%20Muhammad%2C%20saya%20berminat%20nak%20daftar%20anak%20saya%20untuk%20Seminar%20Guaranteed%20Skor%20Straight%20A%27s%20SPM%202026." target="_blank" style="color:var(--gold-hi);margin-top:12px">&rarr; WhatsApp Kami</a>
+</div>
+
+<section id="home">
+  <img src="./assets/logo_crest.png" class="wm" alt="">
+  <div class="vine tl" data-vine></div><div class="vine tr" data-vine></div>
+  <div class="vine bl" data-vine></div><div class="vine br" data-vine></div>
+  <div class="wrap">
+    <div class="hero-img-wrap" data-anim="diagonal" data-delay="1">
+      <img src="./assets/photo_students.jpg" alt="Pelajar Straight A's DR. MUHAMMAD">
+    </div>
+    <div class="hero-content">
+      <img src="./assets/logo_crest.png" alt="" class="hero-crest" data-anim="scale" data-delay="2">
+      <h1 class="hero-name" data-anim="up" data-delay="3">DR. MUHAMMAD</h1>
+      <p class="hero-sub" data-anim="up" data-delay="4">Pakar Transformasi G ke A &mdash;<br>Membina Generasi Straight A&rsquo;s.</p>
+      <div data-anim="up" data-delay="5">
+        <span class="btn-mag"><a class="btn btn-pulse" href="https://wa.me/601111472759?text=Hi%20Dr%20Muhammad%2C%20saya%20berminat%20nak%20daftar%20anak%20saya%20untuk%20Seminar%20Guaranteed%20Skor%20Straight%20A%27s%20SPM%202026." target="_blank" rel="noopener">Mulakan Transformasi G ke A Hari Ini</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kepakaran">
+  <img src="./assets/logo_crest.png" class="wm" alt="">
+  <div class="wrap">
+    <span class="eyebrow split-chars">Kepakaran Kami</span>
+    <h2 class="display split-words" style="font-size:2.7rem;margin-bottom:8px">Peneraju Evolusi Pendidikan</h2>
+    <p style="font-style:italic;color:var(--cream-dim);font-size:1rem" data-anim="up" data-delay="2">Pusat Tuisyen No 1 Malaysia Untuk Transformasi Akademik</p>
+    <h3 class="display" style="font-size:1.5rem;margin-top:10px;color:var(--cream)" data-anim="up" data-delay="3">Membina Masa Depan Melalui Kecemerlangan Akademik</h3>
+    <div class="kep-grid">
+      <div class="yt-thumb" data-anim="scale" data-delay="2" data-vid="5zpT8MIG29c">
+        <img src="https://img.youtube.com/vi/5zpT8MIG29c/hqdefault.jpg" alt="Seminar Transformasi G ke A" loading="lazy">
+        <div class="yt-over">
+          <div class="yt-btn"><div class="yt-tri"></div></div>
+          <div class="yt-lbl">Seminar Transformasi G &rarr; A</div>
+        </div>
+      </div>
+      <div class="kep-paras">
+        <p class="body-txt" data-anim="up" data-delay="2"><b>Ramai pelajar datang kepada kami</b> dalam keadaan <b>hilang keyakinan diri, ketinggalan silibus,</b> and menghadapi kesukaran untuk memahami konsep pembelajaran yang semakin mencabar. Di bawah <b>bimbingan Dr Muhammad,</b> setiap pelajar dibantu untuk mengenal pasti <b>kelemahan utama</b> mereka, membina semula asas pembelajaran, dan menguasai strategi yang diperlukan untuk mencapai <b>keputusan yang lebih cemerlang.</b></p>
+        <p class="body-txt" data-anim="up" data-delay="3"><em>Unlike conventional learning approaches</em> yang hanya memberi tumpuan kepada latihan topikal semata mata, kami secara <b><em>direct cover</em> topik topik major</b> yang akan <b><em>contribute</em> markah tinggi</b> dalam peperiksaan. Pelajar akan didedahkan kepada <b>teknik menjawab yang berkesan</b>, cara <b><em>master</em> Soalan KBAT</b>, serta kupasan <b>Soalan Spot yang tepat</b> bersama strategi peperiksaan yang <em>power</em> yang membantu mereka meningkatkan prestasi dengan <b>pantas dan sistematik.</b></p>
+        <p class="body-txt" data-anim="up" data-delay="4">Melalui <b>pengalaman lebih 20 tahun</b> membimbing ribuan pelajar dari pelbagai tahap pencapaian akademik, <b>Dr Muhammad telah membantu</b> ramai pelajar melakukan <b>transformasi yang luar biasa</b> daripada gagal memahami subjek kepada <b>mencapai keputusan A.</b></p>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat-cell" data-anim="up" data-delay="2"><span class="stat-num" data-count="20" data-suffix="+">0+</span><span class="stat-lbl">Tahun Pengalaman</span></div>
+      <div class="stat-cell" data-anim="up" data-delay="4"><span class="stat-num" data-count="10000" data-suffix="+">0+</span><span class="stat-lbl">Pelajar Berjaya</span></div>
+      <div class="stat-cell" data-anim="up" data-delay="6"><span class="stat-num" style="font-size:2.8rem">A+</span><span class="stat-lbl">Jaminan Transformasi</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="sistem">
+  <img src="./assets/logo_crest.png" class="wm" alt="">
+  <div class="wrap">
+    <h2 class="display split-words" style="font-size:2.5rem">Sistem Transformasi Akademik Yang Terbukti</h2>
+    <div class="p-line"></div>
+    <div class="method-list">
+      <div class="method-row">
+        <div class="method-num" data-anim="left" data-delay="1">I</div>
+        <div class="method-title" data-anim="up" data-delay="2"><b>1. Formula Zero To Hero</b></div>
+        <p class="body-txt" data-anim="up" data-delay="3"><b>Formula Zero To Hero</b> merupakan pendekatan eksklusif yang dibangunkan oleh <b>Dr Muhammad</b> untuk membantu pelajar <b>menguasai topik-topik yang kritikal</b> dengan lebih mudah dan berkesan. Topik yang sukar dan padat <b>dipecahkan kepada formula, teknik dan langkah yang lebih ringkas</b> supaya pelajar dapat memahami konsep dengan <b>lebih cepat</b> serta mengaplikasikannya dengan yakin ketika peperiksaan. Pendekatan ini amat berkesan terutamanya bagi <b>pelajar yang berada pada tahap sederhana atau lemah</b> dan ingin melakukan <b>lonjakan prestasi akademik dalam tempoh singkat.</b></p>
+      </div>
+      <div class="method-row">
+        <div class="method-num" data-anim="left" data-delay="1">II</div>
+        <div class="method-title" data-anim="up" data-delay="2"><b>2. Teknik Menjawab Berasaskan Skema Pemarkahan</b></div>
+        <p class="body-txt" data-anim="up" data-delay="3">Ramai pelajar mempunyai pengetahuan tetapi <b>gagal memperoleh markah maksimum</b> kerana tidak <b>memahami kehendak sebenar pemeriksa.</b> Oleh sebab itu, pelajar dilatih untuk <b>memahami struktur soalan</b>, mengenal pasti <b>kata kunci penting</b> dan membina jawapan berdasarkan <b>skema pemarkahan yang tepat</b>. Kami <b>tidak mengajar pelajar menghafal</b> keseluruhan buku teks secara membuta tuli. Sebaliknya, mereka diajar untuk memahami <b>apa yang benar-benar dikehendaki oleh pemeriksa</b> dan bagaimana menghasilkan jawapan yang <b>tepat, padat serta berkualiti tinggi</b> bagi memaksimumkan markah. Pendekatan ini membantu pelajar <b>menjawab dengan lebih yakin</b> serta meningkatkan peluang mereka untuk mencapai keputusan yang lebih cemerlang.</p>
+      </div>
+      <div class="method-row">
+        <div class="method-num" data-anim="left" data-delay="1">III</div>
+        <div class="method-title" data-anim="up" data-delay="2"><b>3. Pemantauan Prestasi Dan Bimbingan Berterusan</b></div>
+        <p class="body-txt" data-anim="up" data-delay="3"><b>Potensi seorang pelajar tidak seharusnya ditentukan oleh keputusan semasa mereka.</b> Dengan <b>sistem yang terbukti, strategi yang tepat</b> dan bimbingan berpengalaman, <b>perubahan yang besar boleh dicapai</b> dalam tempoh yang lebih singkat daripada yang disangka. <b>Masa depan anak anda terlalu berharga</b> untuk dipertaruhkan kepada nasib. Berikan mereka peluang untuk <b>dibimbing secara langsung oleh Dr Muhammad</b> dan alami sendiri <b>sistem transformasi akademik</b> yang telah membantu ramai pelajar <b>mencapai perubahan yang luar biasa.</b> Kejayaan akademik memerlukan lebih daripada sekadar menghadiri kelas. Setiap pelajar menerima <b>pemantauan yang berterusan</b> bagi memastikan perkembangan mereka sentiasa berada <b>on track</b>. Selain pencapaian akademik, penekanan turut diberikan kepada <b>pembinaan keyakinan diri, disiplin pembelajaran dan mentaliti kejayaan</b>. Kami percaya bahawa apabila pelajar memiliki ilmu, strategi serta keyakinan yang kukuh, <b>mereka mampu mencapai potensi terbaik</b> yang selama ini tersembunyi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="seminar">
+  <img src="./assets/logo_crest.png" class="wm" alt="">
+  <div class="wrap">
+    <span class="eyebrow split-chars">Seminar</span>
+    <h2 class="display" style="font-size:2.6rem;margin-bottom:10px" data-anim="up" data-delay="1">Seminar Guaranteed Skor Straight A&rsquo;s SPM 2026</h2>
+    <p class="body-txt" data-anim="up" data-delay="2">Beri 1 Peluang Untuk Bantu Anak Anda Skor A Dalam Semua Subjek Critical Bersama Pemeriksa Peperiksaan</p>
+    <div class="quote-card" data-anim="skew-up" data-delay="3">We don&rsquo;t just teach subjects. Kami dedahkan <b>strategi sebenar di sebalik proses pemarkahan peperiksaan</b> supaya anak anda tahu dengan tepat <b>apa yang dicari oleh pemeriksa</b> dan apa yang <b>membezakan jawapan biasa daripada jawapan gred A+</b></div>
+    <p class="body-txt" data-anim="up" data-delay="4">Persediaan SPM 2026 yang berkesan memerlukan bimbingan daripada pakar yang tepat. Semua kelas di dalam program ini dikendalikan di bawah pengawasan dan bimbingan langsung Dr Muhammad, seorang Penggubal dan Pemeriksa Peperiksaan.</p>
+    <p class="body-txt" style="margin-top:14px" data-anim="up" data-delay="5">Sistem ini dibina berasaskan kredibiliti padu yang membezakan kami dengan pusat tuisyen lain:</p>
+    <div style="margin-top:6px">
+      <div class="bullet-row" data-anim="left" data-delay="5"><span class="b-dot">&#9670;</span><span class="body-txt">Kepakaran Silibus Berimpak Tinggi yang memahami secara mendalam struktur pembinaan kertas soalan peperiksaan.</span></div>
+      <div class="bullet-row" data-anim="left" data-delay="6"><span class="b-dot">&#9670;</span><span class="body-txt">Pengalaman Lebih 20 Tahun dalam evolusi akademik dan pengurusan gred pelajar.</span></div>
+      <div class="bullet-row" data-anim="left" data-delay="7"><span class="b-dot">&#9670;</span><span class="body-txt">Melahirkan Ribuan Pelajar Skor A secara konsisten daripada pelbagai tahap latar belakang akademik.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="program">
+  <img src="./assets/logo_crest.png" class="wm" alt="">
+  <div class="wrap">
+    <span class="eyebrow split-chars">Program</span>
+    <h2 class="display split-words" style="font-size:2.6rem;margin-bottom:10px">Pakej Guaranteed A+ (30 Sessions Only)</h2>
+    <p class="body-txt" style="text-align:center;max-width:880px;margin:0 auto" data-anim="up" data-delay="2">Bimbingan intensif dan komprehensif yang dirangka khusus untuk <em>help students</em> melompat daripada zon gred gagal terus <em>score</em> gred A dalam semua <em>major subjects</em>.</p>
+    <div class="price-grid">
+      <div class="price-card" data-anim="flip-up" data-delay="2">
+        <div class="card-shine"></div>
+        <div class="card-opt">Option 1</div>
+        <div class="card-title">Small Group Mastery<br>(Less than 10 students)</div>
+        <div class="card-desc">Designed for high engagement and focused peer learning environment.</div>
+        <div class="card-std">Standard Fee: RM 4,999</div>
+        <div class="card-price"><span class="card-rm">RM</span><span class="card-num" data-count="3999" data-fmt="3,999">3,999</span></div>
+        <div class="card-pay">Today&rsquo;s Special Investment (Full Payment)</div>
+        <div class="card-pay">Flexible Plan: <strong>RM 666</strong> Monthly Instalment</div>
+      </div>
+      <div class="price-card" data-anim="flip-up" data-delay="4">
+        <div class="card-shine"></div>
+        <div class="card-opt">Option 2</div>
+        <div class="card-title">1 to 1 Private Coaching<br>(The Elite Premium)</div>
+        <div class="card-desc">The ultimate personalised learning experience. 100% direct customised attention from Dr Muhammad for rapid grade transformation.</div>
+        <div class="card-std">Standard Fee: RM 24,999</div>
+        <div class="card-price"><span class="card-rm">RM</span><span class="card-num" data-count="21999" data-fmt="21,999">21,999</span></div>
+        <div class="card-pay">Today&rsquo;s Special Investment (Full Payment)</div>
+        <div class="card-pay">Flexible Plan: <strong>RM 3,999</strong> Monthly Instalment</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:48px" data-anim="up" data-delay="5">
+      <span class="btn-mag"><a class="btn" href="https://wa.me/601111472759?text=Hi%20Dr%20Muhammad%2C%20saya%20berminat%20nak%20daftar%20anak%20saya%20untuk%20Seminar%20Guaranteed%20Skor%20Straight%20A%27s%20SPM%202026." target="_blank" rel="noopener">Mulakan Rahsia Strategi Skor A+ Hari Ini</a></span>
+    </div>
+  </div>
+</section>
+
+<section id="testimoni">
+  <img src="./assets/logo_crest.png" class="wm" alt="">
+  <div class="wrap">
+    <span class="eyebrow split-chars">Testimoni</span>
+    <h2 class="display" style="font-size:2.3rem" data-anim="up" data-delay="1">Kisah Kejayaan Benar Pelajar Yang Melakukan Lonjakan Luar Biasa Ke Gred A+</h2>
+    <div class="testi-grid">
+      <div>
+        <div class="testi-tag" data-anim="up" data-delay="2">Transformasi Gred G Ke A+</div>
+        <blockquote class="testi-q" data-anim="up" data-delay="3">&ldquo;Sebelum menyertai seminar ini, anak saya tersangkut dengan gred G dan hilang keyakinan diri kerana silibus yang terlalu mencabar. Namun, teknik menjawab yang diajar oleh Dr Muhammad sangat <em>straightforward</em> dan mudah faham. <em>The customised attention</em> yang diberikan benar benar membantu anak saya melonjak terus kepada pencapaian gred A+ dalam SPM.&rdquo;</blockquote>
+        <div class="testi-name" data-anim="up" data-delay="4">&mdash; Dato&rsquo; William Khoo</div>
+        <div class="testi-title" data-anim="up" data-delay="5">Leading Property Developer &amp; Director of Mega Housing Developments in Penang</div>
+        
+        <div style="margin-top: 56px; text-align: center;">
+          <p class="body-txt" style="text-align: center !important; font-size: 1.05rem; font-weight: 600; color: var(--cream); margin-bottom: 28px;" data-anim="up" data-delay="5">
+            Lihat video di bawah untuk melihat sendiri pencapaian murid murid kami selepas mengikuti Seminar Guaranteed Straight A&rsquo;s:
+          </p>
+          
+          <div class="vid-row">
+            <div class="yt-thumb" data-anim="up" data-delay="6" data-vid="6YyBVoBNenw">
+              <img src="https://img.youtube.com/vi/6YyBVoBNenw/hqdefault.jpg" alt="Adakah SPM Serius Susah?" loading="lazy">
+              <div class="yt-over"><div class="yt-btn"><div class="yt-tri"></div></div></div>
+            </div>
+            <div class="yt-thumb" data-anim="up" data-delay="7" data-vid="lcKTTiUR7v8">
+              <img src="https://img.youtube.com/vi/lcKTTiUR7v8/hqdefault.jpg" alt="Adakah Tuition Sesuatu Gimik?" loading="lazy">
+              <div class="yt-over"><div class="yt-btn"><div class="yt-tri"></div></div></div>
+            </div>
+          </div>
+
+          <p class="body-txt" style="margin-top: 42px; text-align: center !important; font-size: 1.05rem; font-weight: 600; color: var(--cream); margin-bottom: 28px;" data-anim="up" data-delay="8">
+            Untuk melihat lagi testimoni kejayaan dan kisah transformasi gred pelajar kami yang lebih lengkap, sila <em>click link</em> di bawah untuk <em>direct</em> ke page Facebook kami.
+          </p>
+          
+          <div data-anim="up" data-delay="9">
+            <span class="btn-mag" style="width:100%">
+              <a href="https://www.facebook.com/share/1EhXuucPiE/" target="_blank" rel="noopener" class="btn" style="width:100%; display:block; padding: 22px 24px; font-size:1.05rem;">Facebook Dr Muhammad</a>
+            </span>
+          </div>
+        </div>
+
+      </div>
+      <div class="photo-wrap">
+        <img src="./assets/photo_testimonial.jpg" alt="Dato' William Khoo bersama Dr. Muhammad" data-anim="sharpen" data-delay="2">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <img src="./assets/logo_crest.png" class="wm" alt="">
+  <div class="wrap">
+    <span class="eyebrow split-chars">Soalan Lazim (FAQ)</span>
+    <h2 class="display" style="font-size:2.4rem;max-width:1050px;margin-bottom:8px" data-anim="up" data-delay="1">Semua Jawapan Yang Anda Perlu Tahu Mengenai Academic Investment Untuk Masa Depan Anak Anda Yang Cerah</h2>
+    <p class="body-txt" style="font-style:italic;font-size:.92rem" data-anim="up" data-delay="2">Kami faham bahawa <b>pemilihan bimbingan akademik premium</b> untuk masa depan anak anda memerlukan <b>pertimbangan yang sangat teliti.</b> We truly understand that you want <b>only the best</b> for your kids future. Berikut adalah <b>jawapan bagi setiap persoalan penting anda</b> untuk membantu anda membuat <b>keputusan yang tepat.</b></p>
+    <div class="faq-list">
+      <div class="faq-item open" data-anim="up" data-delay="2">
+        <div class="faq-q"><span class="faq-q-txt"><strong>Q1.</strong> Anak saya sekarang berada pada tahap yang sangat lemah dan sering gagal sejak Form 4. Adakah program ini sesuai?</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><div class="faq-a-in"><b>Absolutely yes.</b> Sebenarnya majoriti pelajar yang menyertai program ini bukanlah pelajar straight A pada peringkat awal. Ramai yang datang dalam keadaan <b>totally lost, ketinggalan silibus,</b> dan hampir putus asa dengan keputusan yang kurang memuaskan.<br><br>Program premium ini bertindak sebagai <b>emergency academic rescue.</b> Kami tidak membebankan pelajar dengan lambakan nota baharu, sebaliknya kami fokus secara sistematik kepada <b>pembongkaran soalan Spot</b> serta <b>intensive training</b> untuk menguasai bahagian-bahagian penting yang menyumbang <b>markah paling tinggi.</b> Ini adalah <b>the ultimate strategic shortcut</b> untuk <b>menyelamatkan dan melonjakkan semula gred anak anda</b> dengan pantas.</div></div>
+      </div>
+      <div class="faq-item" data-anim="up" data-delay="3">
+        <div class="faq-q"><span class="faq-q-txt"><strong>Q2.</strong> Anak saya dah ikuti tuisyen di merata tempat tetapi keputusan tetap biasa-biasa dan tidak pernah mendapat A. Masih ada peluang?</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><div class="faq-a-in"><b>Of course, there is always a great opportunity.</b> Banyak kes berlaku di mana pelajar sudah <b>berusaha keras</b> tetapi gred mereka tetap <b>tersangkut pada tahap yang sama</b> kerana mereka hanya <b>menghafal silibus</b> atau sekadar membuat latihan topical yang <b>tidak menepati standard SPM sebenar.</b> Mereka kurang pendedahan tentang <b>kriteria jawapan berkualiti</b> untuk mencapai gred tertinggi, sebab itu apabila masuk ke dalam dewan peperiksaan mereka mudah menjadi <b>blank.</b><br><br>With our <b>right strategy and expert guidance,</b> keputusan akademik yang lepas <b>bukanlah penentu keputusan akhir</b> anak anda dalam SPM 2026. Di dalam program <b>guaranteed</b> ini, kami akan mendedahkan <b>the exact proven formula</b> dan memperbetulkan <b>teknik menjawab</b> anak anda agar menepati <b>standard gred cemerlang.</b> Kami sedia bantu anak anda <b>pecah rekod</b> untuk menggenggam <b>gred A+</b> yang tidak pernah mereka capai sebelum ini.</div></div>
+      </div>
+      <div class="faq-item" data-anim="up" data-delay="3">
+        <div class="faq-q"><span class="faq-q-txt"><strong>Q3.</strong> Mengapa program ini berbeza daripada kelas tuisyen biasa?</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><div class="faq-a-in"><b>The difference is massive.</b> Kebanyakan kelas tuisyen biasa di luar sana hanya memberi fokus kepada <b>lambakan nota</b> dan sekadar <b>menghabiskan silibus secara meluas.</b> Program <b>guaranteed</b> ini pula dibina dengan <b>high level exam-oriented strategy.</b> Kami mendedahkan pelajar kepada soalan-soalan yang mempunyai <b>higher standard than actual SPM paper</b> sebagai satu <b>strong foundation</b> supaya mereka berasa sangat <b>confident</b> apabila melangkah masuk ke dalam dewan peperiksaan. Kami memberi fokus sepenuhnya kepada <b>teknik pemarkahan yang tepat, penguasaan topik berimpak tinggi,</b> dan cara menghasilkan <b>struktur jawapan yang menepati kriteria gred tertinggi</b> secara konsisten. Kami tidak hanya mengajar subjek, tetapi kami melatih anak anda dengan <b>sistem pengurusan gred yang strategik</b> untuk menghadapi <b>SPM 2026.</b></div></div>
+      </div>
+      <div class="faq-item" data-anim="up" data-delay="4">
+        <div class="faq-q"><span class="faq-q-txt"><strong>Q4.</strong> Siapakah yang akan membimbing pelajar di dalam program ini?</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><div class="faq-a-in">Semua sesi premium di dalam program ini dijalankan di bawah <b>pengawasan dan bimbingan langsung oleh Dr. Muhammad,</b> seorang <b>Penggubal dan Pemeriksa Kertas SPM</b> yang mempunyai <b>pengalaman lebih 20 tahun</b> dalam membantu pelajar meningkatkan prestasi akademik mereka.<br><br>Anak anda akan menerima <b>bimbingan terus daripada seorang pakar</b> yang tahu secara terperinci <b>bagaimana kertas soalan dibina</b> dan <b>bagaimana pemarkahan gred tertinggi diberikan.</b> Ini memastikan setiap sesi adalah <b>highly exclusive expert guidance</b> yang tersangat jauh bezanya dengan kelas tuisyen biasa di luar sana yang kebanyakannya hanya dikendalikan oleh <b>tutor freelancers atau guru sekolah biasa tanpa kepakaran penggubalan kertas peperiksaan.</b></div></div>
+      </div>
+      <div class="faq-item" data-anim="up" data-delay="4">
+        <div class="faq-q"><span class="faq-q-txt"><strong>Q5.</strong> Adakah program ini cover semua subjek kritikal SPM?</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><div class="faq-a-in"><b>Yes, absolutely.</b> Program <b>guaranteed</b> ini dirangka secara <b>premium dan efektif</b> untuk membantu pelajar <b>master semua critical subjects</b> dengan pendekatan yang <b>highly strategic and laser-focused towards the actual SPM paper.</b><br><br>Each subject is drilled through <b>30 intensive sessions.</b> Kami menolak sama sekali <b>pendekatan umum yang lembap.</b><br><br>Sebaliknya, setiap satu silibus subjek kritikal tersebut telah <b>dibedah, dilonret, dan disusun semula secara eksklusif</b> mengikut <b>acuan pemarkahan gred tertinggi.</b> Ini adalah <b>satu-satunya sistem bimbingan elit</b> yang dibina untuk menjamin <b>impak persediaan paling maksima</b> bagi memastikan anak anda menggenggam <b>keputusan A+ dalam SPM 2026.</b></div></div>
+      </div>
+      <div class="faq-item" data-anim="up" data-delay="5">
+        <div class="faq-q"><span class="faq-q-txt"><strong>Q6.</strong> Anak saya seorang yang pemalu dan kurang yakin. Adakah dia akan dapat mengikuti program ini?</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><div class="faq-a-in"><b>Yes, definitely.</b> Dalam program <b>guaranteed</b> ini, kami mengekalkan sistem <b>very small group and personalised attention</b>. Kami membina satu <b>supportive and premium learning environment</b> yang direka khusus untuk <b>memulihkan emosi pelajar</b>. Apabila mereka mula menguasai <b>teknik menjawab yang betul</b>, rasa takut akan hilang dan mereka sendiri akan berasa sangat <b>teruja untuk memburu gred A+</b>.</div></div>
+      </div>
+      <div class="faq-item" data-anim="up" data-delay="5">
+        <div class="faq-q"><span class="faq-q-txt"><strong>Q7.</strong> Masih sempatkah untuk membuat perubahan sebelum SPM 2026?</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><div class="faq-a-in"><b>Yes, it is still possible, but time is running out.</b> Setiap hari yang berlalu tanpa sebarang <b>tindakan strategik</b> adalah satu <b>kerugian besar</b> untuk masa depan akademik anak anda. Dengan sistem <b>strategic shortcut</b> yang kami bawakan, perubahan gred yang drastik daripada <b>gagal kepada A+</b> bukanlah sesuatu yang <b>impossible.</b> Namun, <b>time investment is the most important factor</b>.</div></div>
+      </div>
+      <div class="faq-item" data-anim="up" data-delay="6">
+        <div class="faq-q"><span class="faq-q-txt"><strong>Q8.</strong> Mengapa ibu bapa perlu bertindak sekarang dan bukan nanti?</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><div class="faq-a-in"><b>Delaying this decision is a luxury your child cannot afford.</b> Setiap bulan yang berlalu adalah <b>masa berharga yang tidak akan boleh diganti semula</b>. Tindakan pantas anda pada hari ini adalah the <b>ultimate game changer</b> yang akan memberikan <b>kelebihan persaingan yang sangat besar</b> kepada anak anda. Jangan tunggu sehingga <b>minit-minit terakhir peperiksaan</b> baru mahu mencari <b>pelan penyelamat</b>.</div></div>
+      </div>
+      <div class="faq-item" data-anim="up" data-delay="6">
+        <div class="faq-q"><span class="faq-q-txt"><strong>Q9.</strong> Adakah terdapat pelan bayaran instalment?</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><div class="faq-a-in"><b>Yes, definitely.</b> Initial investment untuk program <b>guaranteed</b> ini adalah <b>RM4,999</b>. Namun, bagi <b>early registration</b>, kami menawarkan harga istimewa <b>RM3,999</b> sahaja, dengan pilihan <b>Full Payment</b> and <b>Monthly Instalment</b>.</div></div>
+      </div>
+      <div class="faq-item" data-anim="up" data-delay="7">
+        <div class="faq-q"><span class="faq-q-txt"><strong>Q10.</strong> Bagaimana saya boleh lock slot untuk memulakan program ini bagi anak saya?</span><div class="faq-ico"></div></div>
+        <div class="faq-a"><div class="faq-a-in"><b>Seats are strictly limited.</b> Sila click button di bawah sekarang untuk <b>check available slots</b> dan terus <b>lock promotion early registration RM3,999</b> anda before <b>all seats are taken</b> and <b>registration is completely closed</b>.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="vine tl" data-vine></div><div class="vine tr" data-vine></div>
+  <div class="vine bl" data-vine></div><div class="vine br" data-vine></div>
+  <div id="cta-particles"></div>
+  <div class="wrap">
+    <img src="./assets/logo_main.png" alt="DR. MUHAMMAD" class="cta-logo" data-anim="scale">
+    <div class="divider" data-anim="up" data-delay="2"><div class="ln"></div><div class="dm"></div><div class="ln"></div></div>
+    <h2 class="cta-hl split-words" data-delay="3">Masa Depan Anak Anda Bermula Dengan Keputusan Yang Betul Hari Ini</h2>
+    <p class="body-txt" style="max-width:700px;text-align:center;font-size:1.06rem" data-anim="up" data-delay="4">Potensi seorang pelajar tidak seharusnya ditentukan oleh keputusan semasa mereka.</p>
+    <p class="body-txt" style="max-width:820px;text-align:center;margin-top:14px" data-anim="up" data-delay="5">Dengan sistem yang terbukti, strategi yang tepat dan bimbingan yang berpengalaman, perubahan yang besar boleh dicapai dalam tempoh yang lebih singkat daripada yang disangka.</p>
+    <p class="body-txt" style="max-width:840px;text-align:center;margin-top:14px;margin-bottom:42px" data-anim="up" data-delay="6"><b>Masa depan anak anda terlalu berharga</b> untuk dipertaruhkan kepada nasib. Berikan mereka peluang untuk <b>dibimbing secara langsung oleh Dr Muhammad</b> dan alami sendiri <b>sistem transformasi akademik</b> yang telah membantu ramai pelajar <b>mencapai perubahan yang luar biasa.</b></p>
+    <div data-anim="up" data-delay="7">
+      <span class="btn-mag"><a class="btn btn-pulse" href="https://wa.me/601111472759?text=Hi%20Dr%20Muhammad%2C%20saya%20berminat%20nak%20daftar%20anak%20saya%20untuk%20Seminar%20Guaranteed%20Skor%20Straight%20A%27s%20SPM%202026." target="_blank" rel="noopener" style="font-size:.9rem;padding:26px 76px">Mulakan Transformasi G ke A Hari Ini</a></span>
+    </div>
+  </div>
+</section>
+
+<div id="connect">
+  <div class="connect-wrap">
+    <span class="eyebrow" data-anim="up">Hubungi &amp; Ikuti Kami</span>
+    <span class="connect-hl display" data-anim="up" data-delay="1">Connect With Dr. Muhammad</span>
+    <nav class="soc-row" data-anim="up" data-delay="2" aria-label="Social Media">
+      <a class="soc-link" href="https://wa.me/601111472759?text=Hi%20Dr%20Muhammad%2C%20saya%20berminat%20nak%20daftar%20anak%20saya%20untuk%20Seminar%20Guaranteed%20Skor%20Straight%20A%27s%20SPM%202026." target="_blank" rel="noopener">WhatsApp</a>
+      <span class="soc-sep">&middot;</span>
+      <a class="soc-link" href="https://www.instagram.com/mastansuccesstuition" target="_blank" rel="noopener">Instagram</a>
+      <span class="soc-sep">&middot;</span>
+      <a class="soc-link" href="https://www.facebook.com/profile.php?id=100088068608759" target="_blank" rel="noopener">Facebook</a>
+      <span class="soc-sep">&middot;</span>
+      <a class="soc-link" href="https://www.tiktok.com/@drmuhammad87" target="_blank" rel="noopener">TikTok</a>
+      <span class="soc-sep">&middot;</span>
+      <a class="soc-link" href="https://www.youtube.com/@DrMuhammadTuitionCentre" target="_blank" rel="noopener">YouTube</a>
+    </nav>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <img src="./assets/logo_crest.png" alt="DR. MUHAMMAD" class="footer-crest">
+  <div class="footer-copy">
+    <span>&copy; 2026 DR. MUHAMMAD &mdash; All rights reserved</span>
+    <span class="footer-sep"></span>
+    <span></span><br>
+    <span class="footer-sep">&middot;</span>
+    Engineered by <a href="https://harminsolutions.com" class="footer-a" target="_blank" rel="noopener">Harmin Solutions</a>
+    <span class="footer-sep">&middot;</span>
+    Code. Create. Connect.
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+/* ── Vine SVG ──────────────────────────────────────── */
+const VINE=`<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M6,6 C24,6 16,32 38,37 C58,42 50,14 78,18" stroke="#c9a227" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="78" cy="18" r="2.4" fill="#c9a227"/><path d="M38,37 C32,48 47,52 42,63" stroke="#c9a227" stroke-width="1.2" fill="none" stroke-linecap="round"/><circle cx="42" cy="63" r="1.8" fill="#c9a227"/></svg>`;
+document.querySelectorAll('[data-vine]').forEach(el=>el.innerHTML=VINE);
+
+/* ── Intro ─────────────────────────────────────────── */
+const intro=document.getElementById('intro');
+function exitIntro(){
+  intro.classList.add('exit');
+  document.body.classList.remove('locked');
+  setTimeout(()=>{
+    intro.style.display='none';
+    document.querySelectorAll('#home [data-anim]').forEach((el,i)=>{
+      setTimeout(()=>el.classList.add('in'),i*180);
+    });
+  },1350);
+}
+intro.addEventListener('click',exitIntro);
+const introTimer=setTimeout(exitIntro,4600);
+
+/* ── Scroll Reveal ─────────────────────────────────── */
+const revealObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      e.target.querySelectorAll('.p-line').forEach(l=>l.classList.add('in'));
+    }
+  });
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+
+document.querySelectorAll('[data-anim]').forEach(el=>{
+  if(!el.closest('#home')) revealObs.observe(el);
+});
+
+document.querySelectorAll('.p-line').forEach(el=>revealObs.observe(el));
+
+document.querySelectorAll('[data-anim="sharpen"]').forEach(el=>{
+  if(!el.closest('#home')) revealObs.observe(el);
+});
+
+/* ── Counter ───────────────────────────────────────── */
+function countUp(el){
+  const target=parseInt(el.dataset.count,10),fmt=el.dataset.fmt,suffix=el.dataset.suffix||'';
+  const dur=2000,t0=performance.now();
+  (function tick(now){
+    const p=Math.min((now-t0)/dur,1),ease=1-Math.pow(1-p,4);
+    el.textContent=Math.floor(ease*target).toLocaleString()+(p<1?'':suffix);
+    if(p<1)requestAnimationFrame(tick);
+    else el.textContent=(fmt||target.toLocaleString())+suffix;
+  })(t0);
+}
+const cntObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting&&!e.target._counted){e.target._counted=true;countUp(e.target);}});
+},{threshold:0.6});
+document.querySelectorAll('[data-count]').forEach(el=>cntObs.observe(el));
+
+/* ── Navbar ────────────────────────────────────────── */
+const nav=document.getElementById('navbar');
+const nls=[...document.querySelectorAll('.nav-link[href]')];
+const secs=[...document.querySelectorAll('section[id]')];
+document.getElementById('nav-home')?.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>60);
+  let cur=secs[0]?.id;
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-130)cur=s.id;});
+  nls.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+
+/* ── Hamburger ─────────────────────────────────────── */
+const ham=document.getElementById('ham'),mNav=document.getElementById('mobile-nav');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mNav.classList.toggle('open');});
+mNav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');mNav.classList.remove('open');}));
+
+/* ── FAQ Accordion ─────────────────────────────────── */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  const q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
+  if(item.classList.contains('open'))a.style.maxHeight=a.scrollHeight+'px';
+  q.addEventListener('click',()=>{
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>{i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight='0';});
+    if(!wasOpen){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+  });
+});
+
+/* ── CTA Particles ─────────────────────────────────── */
+(function(){
+  const c=document.getElementById('cta-particles');
+  if(!c)return;
+  c.style.cssText='position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0';
+  for(let i=0;i<22;i++){
+    const p=document.createElement('div');p.className='particle';
+    const sz=1+Math.random()*2.5;
+    p.style.cssText=`left:${Math.random()*100}%;bottom:${Math.random()*40}%;width:${sz}px;height:${sz}px;animation-delay:${Math.random()*9}s;animation-duration:${7+Math.random()*9}s;`;
+    c.appendChild(p);
+  }
+})();
+
+/* ── Smooth anchor scroll ──────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
+});
+
+/* ── Progress bar ──────────────────────────────────── */
+const pb=document.getElementById('progress');
+window.addEventListener('scroll',()=>{pb.style.width=Math.min(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100,100)+'%';},{passive:true});
+
+/* ── Word-split (Gucci editorial reveal) ───────────── */
+(function applySplitWords(){
+  document.querySelectorAll('.split-words').forEach(el=>{
+    const text=el.textContent.trim().replace(/\s+/g,' ');
+    el.innerHTML=text.split(' ').map((w,i)=>`<span class="sw" style="--wi:${i}"><span class="sw-inner">${w}</span></span>`).join(' ');
+    if(!el.closest('#home'))revealObs.observe(el);
+  });
+})();
+
+/* ── Char-split eyebrows (fashion label reveal) ─────── */
+(function applySplitChars(){
+  document.querySelectorAll('.split-chars').forEach(el=>{
+    const text=el.textContent;
+    el.innerHTML=[...text].map((ch,i)=>ch===' '?' ':`<span class="sc" style="--ci:${i}">${ch}</span>`).join('');
+    if(!el.closest('#home'))revealObs.observe(el);
+  });
+})();
+
+/* ── Magnetic CTA buttons ──────────────────────────── */
+document.querySelectorAll('.btn-mag').forEach(wrap=>{
+  const btn=wrap.querySelector('.btn');
+  if(!btn)return;
+  wrap.addEventListener('mousemove',e=>{
+    const r=wrap.getBoundingClientRect();
+    btn.style.transform=`translateY(-3px) translate(${(e.clientX-r.left-r.width/2)*.28}px,${(e.clientY-r.top-r.height/2)*.28}px)`;
+  });
+  wrap.addEventListener('mouseleave',()=>{btn.style.transform='';});
+});
+
+/* ── Parallax watermarks ───────────────────────────── */
+const wms=[...document.querySelectorAll('.wm')];
+window.addEventListener('scroll',()=>{
+  const sy=window.scrollY;
+  wms.forEach(el=>{const base=el.parentElement.offsetTop;el.style.transform=`translate(-50%,calc(-50% + ${(sy-base)*.08}px))`;});
+},{passive:true});
+
+/* ── Force-reveal fallback ─────────────────────────── */
+function forceReveal(){
+  document.querySelectorAll('[data-anim]:not(.in),.split-words:not(.in),.split-chars:not(.in),.p-line:not(.in)').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.top<window.innerHeight+30&&r.bottom>-30)el.classList.add('in');
+  });
+}
+window.addEventListener('scroll',forceReveal,{passive:true});
+setTimeout(forceReveal,700);
+setTimeout(forceReveal,5400);
+
+/* ── Inline YouTube Playback ───────────────────────── */
+document.querySelectorAll('.yt-thumb').forEach(thumb => {
+  thumb.addEventListener('click', function() {
+    const vid = this.dataset.vid;
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://www.youtube.com/embed/${vid}?autoplay=1&rel=0`;
+    iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+    iframe.allowFullscreen = true;
+    
+    // Clear content and replace with iframe
+    this.innerHTML = '';
+    this.appendChild(iframe);
+  });
+});
+</script>
+
+</body>
+</html>
